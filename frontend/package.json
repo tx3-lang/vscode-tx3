@@ -15,7 +15,7 @@
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
     "tailwindcss": "^4.1.0",
-    "tx3-trp": "file:../../packages/tx3-trp",
+    "tx3-trp": "^0.2.0",
     "yup": "^1.6.1"
   },
   "devDependencies": {
