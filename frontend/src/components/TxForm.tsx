@@ -4,8 +4,6 @@ import { TRPClient, TxEnvelope, ProtoTx } from "tx3-trp";
 import Box from "./Box";
 import Form, { FieldType } from "./Form";
 
-import type { Tx } from "../App";
-
 interface TxFormProps {
   tx: Tx;
   trpEndpoint: string;
