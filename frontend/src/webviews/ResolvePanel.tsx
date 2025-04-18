@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import Title from "./components/Title";
-import TrpServerForm from "./components/TrpServerForm";
-import TxForm from "./components/TxForm";
+import Title from "../components/Title";
+import TrpServerForm from "../components/TrpServerForm";
+import TxForm from "../components/TxForm";
 
-export interface Tx {
-  name: string;
-  parameters: Record<string, string>;
-  tir: string;
-}
-
-function App() {
+const ResolvePanel: React.FC = () => {
   const [txs, setTxs] = useState<Tx[]>([]);
   const [trpServer, setTrpServer] = useState<TrpServer>(config.trpServers[0]);
   const [trpServers, setTrpServers] = useState<TrpServer[]>(config.trpServers);
@@ -28,10 +22,8 @@ function App() {
       case 'config':
         setTrpServers(eventData.data.trpServers);
         break;
-      case 'txs':
-        setTxs(eventData.data);
-        break;
-      default:
+      case 'document-data':
+        setTxs(eventData.data.txs);
         break;
     }
   };
@@ -59,4 +51,4 @@ function App() {
   );
 }
 
-export default App
+export default ResolvePanel;

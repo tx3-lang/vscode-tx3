@@ -1,36 +1,49 @@
-type VSCode = {
-    postMessage(message: any): void;
-    getState(): any;
-    setState(state: any): void;
+declare type VSCode = {
+  postMessage(message: any): void;
+  getState(): any;
+  setState(state: any): void;
 };
 
 declare const vscode: VSCode;
 
-type TrpServer = {
-    name: string;
-    url: string;
-    headers?: Record<string, string>;
+declare type TrpServer = {
+  name: string;
+  url: string;
+  headers?: Record<string, string>;
 }
 
-type Config = {
-    trpServers: TrpServer[];
+declare type Config = {
+  trpServers: TrpServer[];
 }
 
 declare const config: Config;
 
-interface AbsAppEvent {
-    type: 'txs' | 'config';
-    data: any;
+declare type Tx = {
+  name: string;
+  parameters: Record<string, string>;
+  tir: string;
 }
 
-interface TxsAppEvent extends AbsAppEvent {
-    type: 'txs';
-    data: Tx[];
+declare type DocumentData = {
+  txs: Tx[];
+  ast: any;
 }
 
-interface TrpServersAppEvent extends AbsAppEvent {
-    type: 'config';
-    data: Config;
+declare interface AppEvent {
+  type: 'document-data' | 'config';
+  data: any;
 }
 
-declare type AppEvent = TxsAppEvent | TrpServersAppEvent;
+declare interface DataAppEvent extends AppEvent {
+  type: 'document-data';
+  data: DocumentData;
+}
+
+declare interface TrpServersAppEvent extends AppEvent {
+  type: 'config';
+  data: Config;
+}
+
+declare type AppEvent = DataAppEvent | TrpServersAppEvent;
+
+declare const webview: 'DIAGRAM-PANEL' | 'RESOLVE-PANEL';

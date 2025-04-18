@@ -1,11 +1,14 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
+
+import ResolvePanel from './webviews/ResolvePanel';
+import DiagramPanel from './webviews/DiagramPanel';
 
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    {webview === 'RESOLVE-PANEL' && <ResolvePanel />}
+    {webview === 'DIAGRAM-PANEL' && <DiagramPanel />}
   </StrictMode>,
 )
