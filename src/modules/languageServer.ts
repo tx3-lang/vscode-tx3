@@ -8,35 +8,12 @@ import {
 
 let client: LanguageClient;
 
-const getServerPath = (context: vscode.ExtensionContext): { command: string; args: string[]; } => {
-  if (context.extensionMode === vscode.ExtensionMode.Development) {
-    return {
-      command: "cargo",
-      args: ["run", "--bin", "tx3-lsp", "--"],
-    };
-  }
-
-  return {
-    command: context.asAbsolutePath(`tx3-lsp-${process.platform}-${process.arch}`),
-    args: [],
-  };
-}
-
-const activate = (context: vscode.ExtensionContext): LanguageClient => {
-  const serverConfig = getServerPath(context);
-
+const activate = (context: vscode.ExtensionContext, lspPath: string): LanguageClient => {
+  
   // The server options. We launch the Rust binary directly
   const serverOptions: ServerOptions = {
-    run: {
-      command: serverConfig.command,
-      args: serverConfig.args,
-      transport: TransportKind.stdio,
-    },
-    debug: {
-      command: serverConfig.command,
-      args: serverConfig.args, // TODO: Add --debug
-      transport: TransportKind.stdio,
-    },
+    command: lspPath,
+    transport: TransportKind.stdio,
   };
 
   // Options to control the language client
