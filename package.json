@@ -3,7 +3,7 @@
   "displayName": "Tx3 Language Support - DSL for building UTxO Transactions",
   "description": "Language support for Tx3 including syntax highlighting and LSP",
   "publisher": "TxPipe",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "https://github.com/txpipe/tx3",
   "icon": "images/logo.png",
   "engines": {
@@ -70,6 +70,12 @@
       "title": "Tx3 Language Support",
       "type": "object",
       "properties": {
+        "tx3.lspPath": {
+          "type": "string",
+          "description": "Path to the Tx3 language server executable",
+          "default": "~/.tx3/default/bin/tx3-lsp",
+          "format": "uri"
+        },
         "tx3.trpServers": {
           "type": "array",
           "description": "TRP servers list",
