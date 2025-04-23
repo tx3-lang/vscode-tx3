@@ -27,7 +27,7 @@ To open the panel:
 - Use the command palette (`Cmd+Shift+P`) and search for `Open Tx3 Resolve Panel`.
 - Alternatively, click the `play` button located in the editor title bar.
 
-![Tx3 Resolve Panel](./images/resolve-panel.png)
+![Tx3 Resolve Panel](https://raw.githubusercontent.com/tx3-lang/vscode-tx3/refs/heads/main/images/resolve-panel.png)
 
 ### Tx3 Diagram Panel
 
@@ -40,4 +40,4 @@ To open the panel:
 
 Each transaction in your Tx3 file will be visualized as a diagram, offering a clear and concise overview.
 
-![Tx3 Diagram Panel](./images/diagram-panel.png)
+![Tx3 Diagram Panel](https://raw.githubusercontent.com/tx3-lang/vscode-tx3/refs/heads/main/images/diagram-panel.png)
