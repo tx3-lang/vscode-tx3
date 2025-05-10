@@ -42,6 +42,14 @@
         "title": "Start Tx3 Language Server"
       },
       {
+        "command": "tx3.stopServer",
+        "title": "Stop Tx3 Language Server"
+      },
+      {
+        "command": "tx3.restartServer",
+        "title": "Restart Tx3 Language Server"
+      },
+      {
         "command": "tx3.openResolvePanel",
         "title": "Open Tx3 Resolve Panel",
         "icon": "$(play)"
@@ -110,7 +118,10 @@
           ],
           "items": {
             "type": "object",
-            "required": ["name", "url"],
+            "required": [
+              "name",
+              "url"
+            ],
             "properties": {
               "name": {
                 "type": "string",
