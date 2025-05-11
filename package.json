@@ -82,7 +82,7 @@
           "type": "string",
           "description": "Path to the Tx3 language server executable",
           "default": "~/.tx3/default/bin/tx3-lsp",
-          "format": "uri"
+          "format": "file"
         },
         "tx3.trpServers": {
           "type": "array",
