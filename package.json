@@ -94,26 +94,30 @@
               "name": "Demeter Cardano Preview",
               "url": "https://cardano-preview.trp-m1.demeter.run",
               "headers": {
-                "dmtr-api-key": "trpjodqbmjblunzpbikpcrl"
+                "dmtr-api-key": "trp1ffyf88ugcyg6j6n3yuh"
               }
             },
             {
               "name": "Demeter Cardano Preprod",
               "url": "https://cardano-preprod.trp-m1.demeter.run",
               "headers": {
-                "dmtr-api-key": "API KEY HERE"
+                "dmtr-api-key": "trp1mtg35n2n9lv7yauanfa"
               }
             },
             {
               "name": "Demeter Cardano Mainnet",
               "url": "https://cardano-mainnet.trp-m1.demeter.run",
               "headers": {
-                "dmtr-api-key": "API KEY HERE"
+                "dmtr-api-key": "trp1lrnhzcax5064cgxsaup"
               }
             },
             {
+              "name": "Local Dolos Instance",
+              "url": "http://localhost:8064"
+            },
+            {
               "name": "Custom Endpoint",
-              "url": "http://localhost:<port>"
+              "url": "http://my-trp-server:8064"
             }
           ],
           "items": {
