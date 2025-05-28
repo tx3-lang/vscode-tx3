@@ -8,18 +8,18 @@ let diagramPanel: vscode.WebviewPanel | null = null;
 
 const activate = (
   context: vscode.ExtensionContext,
-  lspClient: LanguageClient
+  lspClient: LanguageClient,
 ) => {
   // Start commands subscriptions
   context.subscriptions.push(
     vscode.commands.registerCommand("tx3.openResolvePanel", () =>
-      openResolvePanelCommandHandler(context, lspClient)
-    )
+      openResolvePanelCommandHandler(context, lspClient),
+    ),
   );
   context.subscriptions.push(
     vscode.commands.registerCommand("tx3.openDiagramPanel", () =>
-      openDiagramPanelCommandHandler(context, lspClient)
-    )
+      openDiagramPanelCommandHandler(context, lspClient),
+    ),
   );
 
   // Start editor subscriptions
@@ -40,35 +40,35 @@ const activate = (
 
 const openResolvePanelCommandHandler = (
   context: vscode.ExtensionContext,
-  lspClient: LanguageClient
+  lspClient: LanguageClient,
 ) => {
   resolvePanel = openPanelCommandHandler(
     context,
     lspClient,
     "resolve-panel",
-    "Tx3 Resolve"
+    "Tx3 Resolve",
   );
   resolvePanel.onDidDispose(
     () => (resolvePanel = null),
     null,
-    context.subscriptions
+    context.subscriptions,
   );
 };
 
 const openDiagramPanelCommandHandler = (
   context: vscode.ExtensionContext,
-  lspClient: LanguageClient
+  lspClient: LanguageClient,
 ) => {
   diagramPanel = openPanelCommandHandler(
     context,
     lspClient,
     "diagram-panel",
-    "Tx3 Diagram"
+    "Tx3 Diagram",
   );
   diagramPanel.onDidDispose(
     () => (resolvePanel = null),
     null,
-    context.subscriptions
+    context.subscriptions,
   );
 };
 
@@ -76,7 +76,7 @@ const openPanelCommandHandler = (
   context: vscode.ExtensionContext,
   lspClient: LanguageClient,
   type: string,
-  title: string
+  title: string,
 ): vscode.WebviewPanel => {
   const documentUri = vscode.window.activeTextEditor?.document.uri;
 
@@ -90,7 +90,7 @@ const openPanelCommandHandler = (
       localResourceRoots: [
         vscode.Uri.file(path.join(context.extensionPath, "frontend", "dist")),
       ],
-    }
+    },
   );
 
   panel.webview.onDidReceiveMessage(
@@ -102,12 +102,12 @@ const openPanelCommandHandler = (
         // This destination could be empty
         vscode.commands.executeCommand(
           "workbench.action.openSettings",
-          message.dest
+          message.dest,
         );
       }
     },
     undefined,
-    context.subscriptions
+    context.subscriptions,
   );
 
   const config = vscode.workspace.getConfiguration("tx3");
@@ -123,16 +123,16 @@ const openPanelCommandHandler = (
             context.extensionUri,
             "frontend",
             "dist",
-            "bundle.js"
-          )
+            "bundle.js",
+          ),
         )}"></script>
         <link rel="stylesheet" crossorigin href="${panel.webview.asWebviewUri(
           vscode.Uri.joinPath(
             context.extensionUri,
             "frontend",
             "dist",
-            "bundle.css"
-          )
+            "bundle.css",
+          ),
         )}">
       </head>
       <body>
@@ -141,7 +141,7 @@ const openPanelCommandHandler = (
           const vscode = acquireVsCodeApi();
           const webview = "${type.toUpperCase()}";
           const config = { trpServers: ${JSON.stringify(
-            config.get("trpServers")
+            config.get("trpServers"),
           )} };
         </script>
       </body>
@@ -155,7 +155,7 @@ const refreshPanelData = (
   lspClient: LanguageClient,
   panel: vscode.WebviewPanel | null,
   type: string,
-  _documentUri?: vscode.Uri
+  _documentUri?: vscode.Uri,
 ) => {
   if (panel !== null) {
     const documentUri =
@@ -165,7 +165,7 @@ const refreshPanelData = (
       if (type === "resolve-panel") {
         features.push("txs");
       } else if (type === "diagram-panel") {
-        features.push("txs", "ast");
+        features.push("txs", "diagram");
       }
       getDocumentDataFromUri(lspClient, documentUri, features).then(
         (documentData) => {
@@ -173,7 +173,7 @@ const refreshPanelData = (
             type: "document-data",
             data: documentData,
           });
-        }
+        },
       );
     }
   }
@@ -182,7 +182,7 @@ const refreshPanelData = (
 const getDocumentDataFromUri = async (
   lspClient: LanguageClient,
   documentUri: vscode.Uri,
-  features: string[]
+  features: string[],
 ) => {
   const data = {} as any;
 
@@ -198,21 +198,20 @@ const getDocumentDataFromUri = async (
           {
             command: "generate-tir",
             arguments: [documentUri.toString(), symbol.name],
-          }
+          },
         );
         data.txs.push({ name: symbol.name, tir, version, parameters });
       }
     }
   }
 
-  if (features.includes("ast")) {
-    const { ast } = await lspClient.sendRequest<any>(
+  if (features.includes("diagram")) {
+    const { diagram } = await lspClient.sendRequest<any>(
       "workspace/executeCommand",
-      { command: "generate-ast", arguments: [documentUri.toString()] }
+      { command: "generate-diagram", arguments: [documentUri.toString()] },
     );
-    data.ast = ast;
+    data.diagram = diagram;
   }
-
   return data;
 };
 
