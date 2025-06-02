@@ -206,11 +206,11 @@ const getDocumentDataFromUri = async (
   }
 
   if (features.includes("diagram")) {
-    const { diagram } = await lspClient.sendRequest<any>(
+    const svgs = await lspClient.sendRequest<any>(
       "workspace/executeCommand",
       { command: "generate-diagram", arguments: [documentUri.toString()] },
     );
-    data.diagram = diagram;
+    data.diagram = svgs;
   }
   return data;
 };
