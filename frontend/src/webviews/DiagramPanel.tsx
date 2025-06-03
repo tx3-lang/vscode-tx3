@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import parse from "html-react-parser";
 
 import Title from "../components/Title";
 
@@ -23,12 +24,10 @@ const DiagramPanel: React.FC = () => {
     <div className="root">
       <h3 className="panel-title">Tx3 Diagram</h3>
       {diagram?.map(({ tx_name, svg }) => {
-        console.log("DiagramPanel", tx_name, svg);
         return (
           <div key={tx_name}>
             <Title>Tx {tx_name}</Title>
-
-            <div dangerouslySetInnerHTML={{ __html: svg }} />
+            {parse(svg)}
           </div>
         );
       })}
