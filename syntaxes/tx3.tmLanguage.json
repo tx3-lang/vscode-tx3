@@ -18,6 +18,9 @@
       "include": "#identifiers"
     },
     {
+      "include": "#macros"
+    },
+    {
       "include": "#strings"
     },
     {
@@ -44,6 +47,10 @@
         }
       ]
     },
+    "macros": {
+      "name": "support.function.macro.tx3",
+      "match": "[a-zA-Z_][a-zA-Z0-9_]*!"
+    },
     "whitespace": {
       "name": "whitespace.tx3",
       "match": "[ \\t\\n\\r]+"
@@ -52,7 +59,7 @@
       "patterns": [
         {
           "name": "keyword.control.tx3",
-          "match": "\\b(asset|party|policy|type|tx|input|output|mint|burn|reference|collateral|cardano|bitcoin|from|to|amount|datum|redeemer|ref|datum_is|min_amount|stake_delegation_certificate|vote_delegation_certificate|drep|stake)\\b"
+          "match": "\\b(asset|party|policy|type|tx|input|output|mint|burn|reference|collateral|signers|validity|since_slot|until_slot|metadata|cardano|bitcoin|fees|from|to|amount|datum|redeemer|ref|datum_is|min_amount|stake_delegation_certificate|vote_delegation_certificate|drep|stake)\\b"
         },
         {
           "name": "constant.language.tx3",
