@@ -27,7 +27,6 @@ declare type Tx = {
 
 declare type DocumentData = {
   txs: Tx[];
-  ast: any;
 };
 
 declare interface AppEvent {
