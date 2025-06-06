@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TRPClient, TxEnvelope, ProtoTx } from "tx3-trp";
+import { TxEnvelope, ProtoTx, Client } from "tx3-sdk/trp";
 
 import Box from "./Box";
 import Form, { FieldType } from "./Form";
@@ -41,7 +41,7 @@ const TxForm: React.FC<TxFormProps> = (props: TxFormProps) => {
   };
 
   const executeTx = async (tx: ProtoTx): Promise<TxEnvelope> => {
-    const client = new TRPClient({
+    const client = new Client({
       endpoint: props.trpEndpoint,
       headers: props.trpHeaders,
     });
