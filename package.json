@@ -3,7 +3,7 @@
   "displayName": "Tx3 Language Support - DSL for building UTxO Transactions",
   "description": "Language support for Tx3 including syntax highlighting and LSP",
   "publisher": "TxPipe",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": "https://github.com/txpipe/tx3",
   "icon": "images/logo.png",
   "engines": {
