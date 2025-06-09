@@ -36,6 +36,46 @@
         "path": "./syntaxes/tx3.tmLanguage.json"
       }
     ],
+    "configurationDefaults": {
+      "[tx3]": {
+        "editor.semanticHighlighting.enabled": true
+      },
+      "editor.semanticTokenColorCustomizations": {
+        "enabled": true,
+        "rules": {
+          "party": {
+            "foreground": "#4EC9B0",
+            "fontStyle": "bold"
+          },
+          "policy": {
+            "foreground": "#9CDCFE",
+            "fontStyle": "italic"
+          },
+          "transaction": {
+            "foreground": "#DCDCAA",
+            "fontStyle": "bold"
+          },
+          "input": {
+            "foreground": "#569CD6"
+          },
+          "output": {
+            "foreground": "#CE9178"
+          },
+          "reference": {
+            "foreground": "#D4D4D4"
+          },
+          "party:declaration": {
+            "fontStyle": "bold underline"
+          },
+          "policy:declaration": {
+            "fontStyle": "italic underline"
+          },
+          "transaction:declaration": {
+            "fontStyle": "bold underline"
+          }
+        }
+      }
+    },
     "commands": [
       {
         "command": "tx3.startServer",
@@ -82,6 +122,11 @@
           "type": "string",
           "description": "Path to the Tx3 language server executable",
           "default": "~/.tx3/default/bin/tx3-lsp"
+        },
+        "tx3.semanticHighlighting.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable semantic highlighting for Tx3 files"
         },
         "tx3.trpServers": {
           "type": "array",
