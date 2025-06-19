@@ -44,34 +44,23 @@
         "enabled": true,
         "rules": {
           "party": {
-            "foreground": "#4EC9B0",
-            "fontStyle": "bold"
+            "foreground": "#4EC9B0"
           },
           "policy": {
             "foreground": "#9CDCFE",
             "fontStyle": "italic"
           },
           "transaction": {
-            "foreground": "#DCDCAA",
-            "fontStyle": "bold"
+            "foreground": "#DCDCAA"
           },
           "input": {
             "foreground": "#569CD6"
           },
           "output": {
-            "foreground": "#CE9178"
+            "foreground": "#ec4f11"
           },
           "reference": {
             "foreground": "#D4D4D4"
-          },
-          "party:declaration": {
-            "fontStyle": "bold underline"
-          },
-          "policy:declaration": {
-            "fontStyle": "italic underline"
-          },
-          "transaction:declaration": {
-            "fontStyle": "bold underline"
           }
         }
       }
