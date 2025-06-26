@@ -47,20 +47,8 @@
             "foreground": "#4EC9B0"
           },
           "policy": {
-            "foreground": "#9CDCFE",
+            "foreground": "#eb66fd",
             "fontStyle": "italic"
-          },
-          "transaction": {
-            "foreground": "#DCDCAA"
-          },
-          "input": {
-            "foreground": "#569CD6"
-          },
-          "output": {
-            "foreground": "#ec4f11"
-          },
-          "reference": {
-            "foreground": "#D4D4D4"
           }
         }
       }
