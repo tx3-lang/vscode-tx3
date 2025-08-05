@@ -112,11 +112,11 @@
             },
             {
               "name": "Local Dolos Instance",
-              "url": "http://localhost:8064"
+              "url": "http://localhost:8164"
             },
             {
               "name": "Custom Endpoint",
-              "url": "http://my-trp-server:8064"
+              "url": "http://my-trp-server:8164"
             }
           ],
           "items": {
