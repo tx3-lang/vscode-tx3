@@ -1,9 +1,9 @@
 {
-  "name": "tx3-language-support",
-  "displayName": "Tx3 Language Support - DSL for building UTxO Transactions",
-  "description": "Language support for Tx3 including syntax highlighting and LSP",
+  "name": "tx3",
+  "displayName": "Tx3 Language Support",
+  "description": "Language support for Tx3 DSL for authoring UTxO protocols",
   "publisher": "TxPipe",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "repository": "https://github.com/txpipe/tx3",
   "icon": "images/logo.png",
   "engines": {
@@ -15,6 +15,7 @@
     "Other"
   ],
   "main": "./out/extension.js",
+  "activationEvents": [],
   "contributes": {
     "languages": [
       {
