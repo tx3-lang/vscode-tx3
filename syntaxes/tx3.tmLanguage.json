@@ -31,6 +31,9 @@
     },
     {
       "include": "#operators"
+    },
+    {
+      "include": "#import"
     }
   ],
   "repository": {
@@ -64,6 +67,14 @@
         {
           "name": "constant.language.tx3",
           "match": "\\b(true|false|none)\\b"
+        }
+      ]
+    },
+    "import": {
+      "patterns": [
+        {
+          "name": "meta.import.tx3",
+          "match": "(?:blueprint|tx3)::import\\s+\"[^\"]+\";"
         }
       ]
     },
